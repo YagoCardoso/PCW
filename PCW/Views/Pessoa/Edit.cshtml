@@ -1,0 +1,100 @@
+﻿@model PCW.Models.Pessoas
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div style="background-color:aliceblue">
+    <hr />
+    <h3>&nbsp; Alterar</h3>
+    <hr />
+</div>
+
+
+
+<h4>Pessoas</h4>
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-sm-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div>
+
+
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Nome</label>
+                    <input asp-for="NOME" class="form-control" />
+                    <span asp-validation-for="NOME" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Cidade</label>
+                    <input asp-for="CIDADE" class="form-control" />
+                    <span asp-validation-for="CIDADE" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">CPF</label>
+                    <input asp-for="CPF" class="form-control" />
+                    <span asp-validation-for="CPF" class="text-danger"></span>
+                </div>
+
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Aniversario</label>
+                    <input asp-for="DTNASCIMENTO" class="form-control" />
+                    <span asp-validation-for="DTNASCIMENTO" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Usuário</label>
+                    <input asp-for="USUARIO" class="form-control" />
+                    <span asp-validation-for="USUARIO" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Senha</label>
+                    <input asp-for="SENHA" class="form-control" />
+                    <span asp-validation-for="SENHA" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Tipo</label>
+                    <input asp-for="TIPO" class="form-control" />
+                    <span asp-validation-for="TIPO" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Telefone</label>
+                    <input asp-for="TELEFONE" class="form-control" />
+                    <span asp-validation-for="TELEFONE" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Endereço</label>
+                    <input asp-for="ENDERECO" class="form-control" />
+                    <span asp-validation-for="ENDERECO" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Nº</label>
+                    <input asp-for="NUMERO" class="form-control" />
+                    <span asp-validation-for="NUMERO" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">Estado</label>
+                    <input asp-for="ESTADO" class="form-control" />
+                    <span asp-validation-for="ESTADO" class="text-danger"></span>
+                </div>
+                <div class="col-xs-5 col-md-5 col-sm-5">
+                    <label class="control-label">CEP</label>
+                    <input asp-for="CEP" class="form-control" />
+                    <span asp-validation-for="CEP" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-xs-12>
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-warning" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

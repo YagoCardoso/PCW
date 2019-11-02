@@ -1,0 +1,58 @@
+﻿
+
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Entrada de veiculos', 15],
+                ['Consulta de pessoas', 25],
+                ['Cadastro de pessoas', 25],
+                ['Consulta de estoque', 10],
+                ['Manutenções', 12],
+                ['Saida de veiculos', 13]
+            ]);
+
+            var options = {
+                
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+    </script>
+
+</head>
+<body>
+    <div class="row" id="graficoPizza">
+        &nbsp;&nbsp; <div class="col-md-4">
+            &nbsp; <div id="donutchart" style="width: 900px; height: 500px;"></div>
+        </div>
+    </div>
+    <div>
+        <a class="btn btn-warning" onclick="esconde()" style="color:white" id="escondegrafico"><span id="textobtn1">Ocultar Grafico</span><span class="hidden" id="textobtn2">Mostrar Grafico</span></a>
+    </div>
+</body>
+</html>
+
+<script>
+    function esconde() {
+        if ($("#graficoPizza").hasClass('hidden')){
+            $("#graficoPizza").removeClass('hidden');
+            $("#textobtn2").addClass('hidden');
+            $("#textobtn1").removeClass('hidden');
+        }else {
+            $("#graficoPizza").addClass('hidden');
+            $("#textobtn1").addClass('hidden');
+            $("#textobtn2").removeClass('hidden');
+           
+        }
+
+       
+    }
+</script>

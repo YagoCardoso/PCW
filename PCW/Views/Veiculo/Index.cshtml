@@ -1,0 +1,62 @@
+﻿
+
+<br />
+
+<h3>Cadastro de Veículos</h3>
+<hr />
+<form>
+    <div class="form-row">
+        <div class="col-xs-12 col-md-4 col-sm-3">
+            <label for="validationDefault01">Marca *</label>
+            <input type="text" class="form-control" id="validationDefault01" placeholder="Marca do Veiculo" value="" required>
+        </div>
+        <div class="col-xs-6 col-md-4 col-sm-3">
+            <label for="validationDefault02">Modelo *</label>
+            <input type="text" class="form-control" id="validationDefault02" placeholder="Modelo do Veiculo" value="" required>
+        </div>
+        <div class="col-xs-6 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Placa *</label>
+            <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Placa" aria-describedby="inputGroupPrepend2" required>
+        </div>
+    </div>
+    &nbsp;
+    &nbsp;
+    <div class="form-row">
+        <div class="col-xs-6 col-md-4 col-sm-3">
+            <label for="validationDefault03">Cor </label>
+            <input type="text" class="form-control" id="validationDefault03" placeholder="Cor" >
+        </div>
+        <div class="col-xs-6 col-md-4 col-sm-3">
+            <div class='input-group date' >
+                <label>Ano de  fabricação</label>
+                <input type='text' class="form-control" placeholder="Ano de Fabricação do Veiculo" />
+            </div>
+        </div>
+        <div class="col-xs-3 col-md-3 col-sm-3">
+            <label for="validationDefault04">Ano Modelo </label>
+            <input type="text" class="form-control" id="validationDefault05" placeholder="Ano do Modelo Veiculo" >
+        </div>
+    </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <div class="form-row">
+        <button class="btn btn-success" type="submit"><i class="material-icons">check</i>&nbsp;  Salvar </button>
+    </div>
+
+
+</form>
+
+@*<script type="text/javascript">
+        $(function () {
+            $('#datetimepicker4').datetimepicker();
+        });
+    </script>*@
+
+<script src="~/lib/jquery/dist/jquery.js">
+    $(function () {
+        $('#datetimepicker4').datetimepicker();
+    });
+</script>
+
+

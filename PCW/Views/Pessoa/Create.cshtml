@@ -1,0 +1,258 @@
+﻿@model PCW.Models.Pessoas
+
+
+<div style="background-color:aliceblue">
+    <hr />
+    <h3>&nbsp; Cadastro de Pessoas</h3>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-sm-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label class="control-label">Nome *</label>
+                <input asp-for="NOME" class="form-control" required />
+                <span class="hidden" id="spanNome" style="color:white"><span style="background-color:red">O Campo Nome é Obrigatório.</span></span>
+
+            </div>
+
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label class="control-label">Cidade</label>
+                <input asp-for="CIDADE" class="form-control" required />
+            </div>
+
+            <div class="col-xs-3 col-md-5 col-sm-5">
+                <label asp-for="CPF" class="control-label">CPF *</label>
+                <input asp-for="CPF" class="form-control" required />
+                <span class="hidden" id="spanCPF" style="color:white"><span style="background-color:red">O Campo CPF é Obrigatório.</span></span>
+                <span class="hidden" id="spanCPFO" style="color:white"><span id="spanCPF" style="background-color:red">CPF Inválido</span></span>
+            </div>
+
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="DTNASCIMENTO" class="control-label">Aniversario *</label>
+                <input asp-for="DTNASCIMENTO" type="date" class="form-control" required />
+                <span class="hidden" id="spanDTNASCIMENTO" style="color:white"><span style="background-color:red">O Campo Aniversario é Obrigatório.</span></span>
+            </div>
+            <div class="loginusu hidden col-md-5 col-sm-5">
+                <label asp-for="USUARIO" class="control-label">Usuário</label>
+                <input asp-for="USUARIO" class="form-control" />
+            </div>
+            <div class="loginusu hidden  col-md-5 col-sm-5">
+                <label asp-for="SENHA" class="control-label">Senha</label>
+                <input asp-for="SENHA" class="form-control" /><a class="btn btn-sm btn-info" onclick="sortear()"><span style="color:white">Gerar senha</span></a>
+            </div>
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="TIPO" class="control-label">Tipo de Usuário</label>
+                <select asp-for="TIPO" class="form-control" id="tipousu">
+                    <option>            -- Selecione --</option>
+                    <option value="1">Cliente</option>
+                    <option value="2">Usuário</option>
+                </select>
+            </div>
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="TELEFONE" class="control-label">Telefone</label>
+                <input asp-for="TELEFONE" class="form-control" />
+            </div>
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="ENDERECO" class="control-label">Endereço</label>
+                <input asp-for="ENDERECO" class="form-control" />
+            </div>
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="NUMERO" class="control-label">Nº</label>
+                <input asp-for="NUMERO" class="form-control" />
+            </div>
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="ESTADO" class="control-label">Estado</label>
+                <input asp-for="ESTADO" class="form-control" />
+            </div>
+            <div class="col-xs-5 col-md-5 col-sm-5">
+                <label asp-for="CEP" class="control-label">CEP</label>
+                <input asp-for="CEP" class="form-control" />
+            </div>
+
+            <div class="col-xs-12">
+                <button onclick="validaTermo()" class="btn btn-success" value="Create" type="submit"><i class="material-icons">check</i>&nbsp;  Salvar </button>
+            </div>
+        </form>
+     
+        
+        
+    </div>
+</div>
+
+
+<br>
+<br>
+
+<div>
+    <a class="btn btn-warning" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    function sortear() {
+        var cidades = [
+            {
+                nome: 'Wc1v2',
+                populacao: 1000
+            },
+
+            {
+                nome: 'Ab1n2',
+                populacao: 3000
+            },
+
+            {
+                nome: 'Cw1w2',
+                populacao: 6000
+            },
+
+            {
+                nome: 'Io2p3',
+                populacao: 6000
+            },
+
+            {
+                nome: 'Fq1w2',
+                populacao: 6000
+            }
+        ];
+
+        var arraySorteio = [];
+
+        var menorPopulacao = 1000;
+
+        cidades.forEach(function (cidade) {
+            var repeticoes = Math.floor(cidade.populacao / menorPopulacao);
+            for (i = 0; i < repeticoes; i++) {
+                arraySorteio.push(cidade.nome);
+            }
+        });
+
+      //  alert(JSON.stringify(arraySorteio));
+
+        //e agora o sorteio
+        var posicaoSorteada = Math.floor((Math.random() * arraySorteio.length));
+      //  alert(arraySorteio[posicaoSorteada]);
+
+        $("#SENHA").val(arraySorteio[posicaoSorteada])
+    }
+ 
+</script>
+
+
+<script>
+    //Mostra campos para Tipo usuario
+    $("#tipousu").change(function () {
+        var usu = $("#tipousu :selected").val();
+        if (usu == 2) {
+
+            $(".loginusu").removeClass('hidden');
+        }
+        if (usu != 2) {
+
+            $(".loginusu").addClass('hidden');
+        }
+    });
+
+
+    // Campos Obrigatorios mostra span
+    function validaTermo() {
+        var nome = $("#NOME").val();
+        var cpf = $("#CPF").val();
+        var niver = $("#DTNASCIMENTO").val();
+
+        if (nome == "" || nome == null) {
+            $("#spanNome").removeClass('hidden');
+        }
+        if (cpf == "" || cpf == null) {
+            $("#spanCPF").removeClass('hidden');
+        }
+        if (niver == "" || niver == null) {
+            $("#spanDTNASCIMENTO").removeClass('hidden');
+        }
+
+    }
+
+    $("#NOME").change(function () {
+        var nome = $("#NOME").val();
+        if (nome == "" || nome == null) {
+            $("#spanNome").removeClass('hidden');
+        } else {
+            $("#spanNome").addClass('hidden');
+        }
+    });
+    $("#CPF").change(function () {
+        var cpf = $("#CPF").val();
+        if (cpf == "" || cpf == null) {
+            $("#spanCPF").removeClass('hidden');
+        } else {
+            $("#spanCPF").addClass('hidden');
+        }
+    });
+    $("#DTNASCIMENTO").change(function () {
+        var niver = $("#DTNASCIMENTO").val();
+        if (niver == "" || niver == null) {
+            $("#spanDTNASCIMENTO").removeClass('hidden');
+        } else {
+            $("#spanDTNASCIMENTO").addClass('hidden');
+        }
+    });
+
+
+    document.getElementById("CPF").addEventListener("blur", validaCPF);
+
+    function validaCPF() {
+
+        var cpfVal = $("#CPF").val();
+
+        $.get('/Pessoa/ValidaCPF',
+            $.param({ data: cpfVal }, true),
+            function (c) {
+
+                if (!c.valido) {
+                    $("#spanCPFO").removeClass('hidden')
+                    // $('#btnSalvarPessoa').addClass('hidden');
+                }
+                if (c.valido) {
+                    $("#spanCPF").addClass('hidden')
+                    // $('#btnSalvarPessoa').removeClass('hidden');
+                }
+
+            });
+
+    }
+
+    //$("#CPF").keypress(function () {
+    //    var cpfVal = $("#CPF").val();
+
+    //    $.get('/Pessoa/ValidaCPF',
+    //        $.param({ data: cpfVal }, true),
+    //        function (c) {
+
+    //            if (!c.valido) {
+    //                $("#spanCPFO").removeClass('hidden')
+    //                $("#CPF").focus();
+    //                // $('#btnSalvarPessoa').addClass('hidden');
+    //            }
+    //            if (c.valido) {
+    //                $("#spanCPFO").addClass('hidden')
+    //                // $('#btnSalvarPessoa').removeClass('hidden');
+    //            }
+
+    //        });
+    //});
+
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script>
+    $('#CPF').mask('000.000.000-00', { reverse: true });
+    $("#CEP").mask("99999-999");
+</script>

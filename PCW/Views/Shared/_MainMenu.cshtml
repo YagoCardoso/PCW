@@ -1,0 +1,109 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="../Content/font-awesome.min.css" rel="stylesheet" />
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+
+            <li class="sidebar-brand">
+                <a href="/Home/Index/">
+                    Pimdexx System
+                </a>
+            </li>
+            <li>
+                <a href="/Home/Index/"><span class="glyphicon glyphicon-signal"></span>Dashboard</a>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="" data-target="#collapsePessoaMenu" aria-expanded="true" aria-controls="collapsePessoaMenu">
+                    <span class="glyphicon glyphicon-user"></span>Pessoa
+                </a>
+                <ul id="collapsePessoaMenu" class="panel-collapse collapse" role="tabpanel" style="background-color:#8a98bb">
+                    <li>
+                        <a href="/Pessoa/Create/">Cadastrar</a>
+                    </li>
+                    <li>
+                        <a href="~/Pessoa/Index">Consultar</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="" data-target="#collapseEntradaSaidaMenu" aria-expanded="true" aria-controls="collapsePessoaMenu">
+                    <span class="glyphicon glyphicon-share"></span>Entrada/Saida de Veiculo
+                </a>
+                <ul id="collapseEntradaSaidaMenu" class="panel-collapse collapse" role="tabpanel" style="background-color:#8a98bb">
+                    <li>
+                        <a href="/EntradaSaida/Entrada">Entrada</a>
+                    </li>
+                    <li>
+                        <a href="/EntradaSaida/Saida">Saida</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="" data-target="#collapseMultaMenu" aria-expanded="true" aria-controls="collapsePessoaMenu">
+                    <span class="glyphicon glyphicon-list-alt"></span>Multa
+                </a>
+                <ul id="collapseMultaMenu" class="panel-collapse collapse" role="tabpanel" style="background-color:#8a98bb">
+                    <li>
+                        <a href="/Multa/Index/">Cadastrar</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="" data-target="#collapseVeiculoMenu" aria-expanded="true" aria-controls="collapsePessoaMenu">
+                    <span class="glyphicon glyphicon-bed"></span>Veiculo
+                </a>
+                <ul id="collapseVeiculoMenu" class="panel-collapse collapse" role="tabpanel" style="background-color:#8a98bb">
+                    <li>
+                        <a href="/Veiculo/Index">Cadastrar</a>
+                    </li>
+                    <li>
+                        <a href="">Consultar</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="" data-target="#collapseManutencoesMenu" aria-expanded="true" aria-controls="collapsePessoaMenu">
+                    <span class="glyphicon glyphicon-cog"></span>Manutenções
+                </a>
+                <ul id="collapseManutencoesMenu" class="panel-collapse collapse" role="tabpanel" style="background-color:#8a98bb">
+                    <li>
+                        <a href="/Manutencoes/Index">Cadastrar</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="" data-target="#collapseEstoqueMenu" aria-expanded="true" aria-controls="collapsePessoaMenu">
+                    <span class="glyphicon glyphicon-wrench"></span>Estoque de Peças
+                </a>
+                <ul id="collapseEstoqueMenu" class="panel-collapse collapse" role="tabpanel" style="background-color:#8a98bb">
+                    <li>
+                        <a href="/EstoquePecas/Index">Cadastrar</a>
+                    </li>
+                </ul>
+            </li>
+
+
+        
+
+        </ul>
+    </div>
+
+    <div id="page-content-wrapper">
+        <div class="nav-top">
+            <span href="#menu-toggle" id="menu-toggle" class="btn btn-sm ease"><i class="glyphicon glyphicon-menu-hamburger"></i></span>
+            <h2 id="h2_1" class=""></h2>
+           
+        </div>
+        @*<a href="#menu-toggle" class="btn btn-warning" id="menu-toggle">Toggle Menu</a><span class="glyphicon-align-justify"></span>*@
+    </div>
+
+
+</div>
+
