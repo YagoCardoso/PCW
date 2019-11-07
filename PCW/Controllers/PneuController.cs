@@ -4,67 +4,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PCW.Models;
 
 namespace PCW.Controllers
 {
-    public class AcessoController : Controller
+    public class PneuController : Controller
     {
-
-        private readonly IPessoasDAL pes;
-        public AcessoController(IPessoasDAL pessoas)
-        {
-            pes = pessoas;
-
-        }
-
-        // GET: Acesso
+        // GET: Pneu
         public ActionResult Index()
         {
             return View();
-
-
         }
 
-        // GET: Acesso/Details/5
+        // GET: Pneu/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        public ActionResult Acesso(string senha, string usuario)
-        {
-           var respostaURL = RedirectToAction("Erro", "Acesso");
-
-            //var cpfSemCaracteres = cpf.Replace(".", "").Replace(".", "").Replace("-", "");
-
-            Pessoas p = new Pessoas();
-            //p = pes.GetUsu(Convert.ToInt32(cpf));
-            p = pes.GetUsu(senha);
-
-            //  var cpfUSuario = p;
-
-            if (p.SENHA != null )
-            {
-                respostaURL = RedirectToAction("Index", "Home");
-            }
-
-            return respostaURL;
-           
-        }
-
-        public ActionResult Erro()
-        {
-            return View();
-        }
-
-        // GET: Acesso/Create
+        // GET: Pneu/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Acesso/Create
+        // POST: Pneu/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -81,13 +44,13 @@ namespace PCW.Controllers
             }
         }
 
-        // GET: Acesso/Edit/5
+        // GET: Pneu/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Acesso/Edit/5
+        // POST: Pneu/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -104,13 +67,13 @@ namespace PCW.Controllers
             }
         }
 
-        // GET: Acesso/Delete/5
+        // GET: Pneu/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Acesso/Delete/5
+        // POST: Pneu/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

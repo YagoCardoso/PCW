@@ -10,6 +10,6 @@ namespace PCW.Models
         Pessoas GetPessoas(int? id);
         void DeletePessoas(int? id);
 
-        Pessoas GetUsu(long cpf);
+        Pessoas GetUsu(string senha);
     }
 }

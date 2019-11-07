@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+
 namespace PCW.Controllers
 {
     public class PessoaController : Controller
@@ -45,6 +47,7 @@ namespace PCW.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind] Pessoas pessoas)
         {
+
             if (ModelState.IsValid)
             {
                 pes.AddPessoas(pessoas);
@@ -108,7 +111,6 @@ namespace PCW.Controllers
         public JsonResult ValidaCPF(string data)
         {
             bool cpfValido = Util.ValidaCPF(data.Replace(".","").Replace(".","").Replace("-",""));
-
 
             var result = new { Mensagem = cpfValido };
 

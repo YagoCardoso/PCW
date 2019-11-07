@@ -1,0 +1,106 @@
+﻿
+
+<h3>Abastecimento</h3>
+<hr />
+
+<div class="form-row">
+    <div class="col-xs-12 col-md-4 col-sm-3">
+        <label for="validationDefault01">Tipo de Veiculo *</label>
+        <select class="form-control">
+            <option>-- Selecione --</option>
+            <option>Caminhão</option>
+            <option>Carreta</option>
+            <option>Onibus</option>
+            <option>Carro</option>
+        </select>
+    </div>
+
+    <div class="col-xs-6 col-md-4 col-sm-3">
+        <label for="validationDefaultUsername">Placa *</label>
+        <input type="text" class="form-control" id="" placeholder="Placa" aria-describedby="inputGroupPrepend2" required>
+    </div>
+    <div class="col-xs-6 col-md-4 col-sm-3">
+        <label for="validationDefaultUsername">Modelo </label>
+        <input type="text" class="form-control" id="" placeholder="Modelo" aria-describedby="inputGroupPrepend2">
+    </div>
+
+    <div class="col-xs-6 col-md-4 col-sm-3">
+        <label for="validationDefaultUsername">Kilometragem</label>
+        <input type="text" class="form-control" id="" placeholder="KM" aria-describedby="inputGroupPrepend2">
+    </div>
+    <div class="col-xs-6 col-md-4 col-sm-3">
+        <label for="validationDefaultUsername">Valor</label>
+        <input type="text" class="form-control" id="" placeholder="R$" aria-describedby="inputGroupPrepend2">
+    </div>
+    <div class="col-xs-12 col-md-4 col-sm-3">
+        <label for="validationDefault01">Tipo de pagamento</label>
+        <select class="form-control">
+            <option>-- Selecione --</option>
+            <option>Dinheiro</option>
+            <option>Unidade convêniada</option>
+            <option>Cartão de crédito</option>
+            <option>Cheque</option>
+            <option>Outros</option>
+        </select>
+    </div>
+</div>
+<br />
+<br />
+<br />
+  &nbsp;<label>Imagem</label><br />
+<div class="form-row">
+
+    <div class="fileinput fileinput-new aquiClonar" data-provides="fileinput">
+        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"><i class="btn btn-info material-icons">add</i></div>
+        <div>
+
+            <span class="btn btn-default btn-file"><span class="fileinput-new">Selecione uma imagem</span><span class="fileinput-exists"></span><input type="file" name="..."></span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remover</a>
+        </div>
+    </div>
+</div>
+  &nbsp; &nbsp;   &nbsp;
+<div class="form-row">
+    <button class="btn btn-success" type="submit"><i class="material-icons">check</i>&nbsp;  Salvar </button>
+</div>
+
+
+<style>
+    div#maisfoto {
+        text-align: center;
+        color: white;
+        float: right;
+        width: 43px;
+        height: 21px;
+        border-radius: 20px;
+        background-color: brown;
+        vertical-align: middle;
+        display: table;
+        padding-bottom: 3px;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.css.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#maisfoto').on('click', function () {
+            $(".aquiClonar:first").clone().appendTo("body");
+
+            $('.aquiClonar a').click(function () {
+                console.log('remover()');
+                $(this).parents('.aquiClonar').remove();
+            });
+        });
+
+    });
+</script>

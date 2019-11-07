@@ -31,6 +31,11 @@
                 <span class="hidden" id="spanCPFO" style="color:white"><span id="spanCPF" style="background-color:red">CPF Inválido</span></span>
             </div>
 
+            <div id="CNH" class="hidden col-md-5 col-sm-5">
+                <label asp-for="CNH" class="control-label">CNH </label>
+                <input asp-for="CNH" class="form-control"  />
+            </div>
+
             <div class="col-xs-5 col-md-5 col-sm-5">
                 <label asp-for="DTNASCIMENTO" class="control-label">Aniversario *</label>
                 <input asp-for="DTNASCIMENTO" type="date" class="form-control" required />
@@ -50,6 +55,7 @@
                     <option>            -- Selecione --</option>
                     <option value="1">Cliente</option>
                     <option value="2">Usuário</option>
+                    <option value="3">Motorista</option>
                 </select>
             </div>
             <div class="col-xs-5 col-md-5 col-sm-5">
@@ -77,9 +83,9 @@
                 <button onclick="validaTermo()" class="btn btn-success" value="Create" type="submit"><i class="material-icons">check</i>&nbsp;  Salvar </button>
             </div>
         </form>
-     
-        
-        
+
+
+
     </div>
 </div>
 
@@ -143,7 +149,7 @@
 
         $("#SENHA").val(arraySorteio[posicaoSorteada])
     }
- 
+
 </script>
 
 
@@ -158,6 +164,12 @@
         if (usu != 2) {
 
             $(".loginusu").addClass('hidden');
+        }
+        if (usu == 3) {
+            $("#CNH").removeClass('hidden')
+        }
+        if (usu != 3) {
+            $("#CNH").addClass('hidden')
         }
     });
 

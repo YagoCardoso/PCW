@@ -6,7 +6,7 @@
 
 @using (@Html.BeginForm("Acesso", "Acesso", FormMethod.Post, new { role = "form" }))
 {
-    
+
 
     <div class="login-wrap">
         <div class="login-html">
@@ -16,17 +16,16 @@
                 <div class="sign-in-htm">
                     <div class="group">
                         <label for="user" class="label">Usuário</label>
-                        <input id="usuario" type="text" class="input" required>
+                        <input id="usuario" name="usuario" type="text" class="input" required>
                     </div>
-                    <div class="group">
+                    <div class="hidden group">
                         <input type="password" class="form-control" />Senha
                     </div>
 
                     <div class="group">
-                        <label for="" class="label">CPF</label>
-                        <input id="cpf" name="cpf" type="text" class="input" required>
+                        <label for="" class="label">Senha</label>
+                        <input id="senha" name="senha" type="password" class="input" required>
                     </div>
-
 
                     <div class="group">
                         <input type="submit" class="button" value="Entrar">
@@ -285,9 +284,9 @@
         }
     }
 
-
-
-
-
 </script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script>
+  //  $('#cpf').mask('000.000.000-00', { reverse: true });
+</script>

@@ -44,7 +44,7 @@ namespace PCW.Models
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string comandoSQL = "Insert into PESSOAS ( NOME,CPF, DTNASCIMENTO,USUARIO, SENHA, TIPO, TELEFONE, ENDERECO, NUMERO,ESTADO,CEP,CIDADE) Values(@NOME,@CPF, @DTNASCIMENTO,@USUARIO, @SENHA, @TIPO, @TELEFONE, @ENDERECO, @NUMERO,@ESTADO,@CEP,@CIDADE)";
+                string comandoSQL = "Insert into PESSOAS ( NOME,CPF, DTNASCIMENTO,USUARIO, SENHA, TIPO, TELEFONE, ENDERECO, NUMERO,ESTADO,CEP,CIDADE, CNH) Values(@NOME,@CPF, @DTNASCIMENTO,@USUARIO, @SENHA, @TIPO, @TELEFONE, @ENDERECO, @NUMERO,@ESTADO,@CEP,@CIDADE, @CNH)";
                 SqlCommand cmd = new SqlCommand(comandoSQL, con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@NOME", pessoas.NOME);
@@ -59,7 +59,8 @@ namespace PCW.Models
                 cmd.Parameters.AddWithValue("@ESTADO", pessoas.ESTADO);
                 cmd.Parameters.AddWithValue("@CEP", pessoas.CEP);
                 cmd.Parameters.AddWithValue("@CIDADE", pessoas.CIDADE);
-               
+                cmd.Parameters.AddWithValue("@CNH", pessoas.CNH);
+
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -69,7 +70,7 @@ namespace PCW.Models
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string comandoSQL = "Update PESSOAS set NOME = @NOME, DTNASCIMENTO = @DTNASCIMENTO, USUARIO=@USUARIO, SENHA=@SENHA, TIPO=@TIPO, TELEFONE=@TELEFONE, ENDERECO=@ENDERECO, NUMERO=@NUMERO, ESTADO=@ESTADO, CIDADE=@CIDADE where SEQPESSOA = @SEQPESSOA";
+                string comandoSQL = "Update PESSOAS set NOME = @NOME, DTNASCIMENTO = @DTNASCIMENTO, USUARIO=@USUARIO, SENHA=@SENHA, TIPO=@TIPO, TELEFONE=@TELEFONE, ENDERECO=@ENDERECO, NUMERO=@NUMERO, ESTADO=@ESTADO, CIDADE=@CIDADE, CNH=@CNH where SEQPESSOA = @SEQPESSOA";
                 SqlCommand cmd = new SqlCommand(comandoSQL, con);
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@SEQPESSOA", pessoas.SEQPESSOA);
@@ -84,6 +85,7 @@ namespace PCW.Models
                 cmd.Parameters.AddWithValue("@NUMERO", pessoas.NUMERO);
                 cmd.Parameters.AddWithValue("@ESTADO", pessoas.ESTADO);
                 cmd.Parameters.AddWithValue("@CIDADE", pessoas.CIDADE);
+                cmd.Parameters.AddWithValue("@CNH", pessoas.CNH);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -120,12 +122,13 @@ namespace PCW.Models
             return pessoas;
         }
 
-        public Pessoas GetUsu(long cpf)
+        public Pessoas GetUsu(string senha)
         {
             Pessoas pessoas = new Pessoas();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string sqlQuery = "SELECT * FROM PESSOAS WHERE CPF= " + cpf ;
+                string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha;
+                //string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha + " AND USUARIO = " + usuario;
                 SqlCommand cmd = new SqlCommand(sqlQuery, con);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -134,7 +137,7 @@ namespace PCW.Models
                     pessoas.SEQPESSOA = Convert.ToInt32(rdr["SEQPESSOA"]);
                     pessoas.NOME = rdr["NOME"].ToString();
                     pessoas.CIDADE = rdr["CIDADE"].ToString();
-                   pessoas.CPF = rdr["CPF"].ToString();
+                    pessoas.CPF = rdr["CPF"].ToString();
                     pessoas.DTNASCIMENTO = rdr["DTNASCIMENTO"].ToString();
                     pessoas.USUARIO = rdr["USUARIO"].ToString();
                     pessoas.SENHA = rdr["SENHA"].ToString();

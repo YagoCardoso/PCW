@@ -1,0 +1,151 @@
+﻿
+
+
+<h3>Gestão de Pneus</h3>
+<hr />
+
+<div id="msgSucesso" class="alert alert-success" role="alert">Salvo Com Sucesso</div>
+
+<div class="form-row">
+    <div class="col-xs-12 col-md-4 col-sm-3">
+        <label for="validationDefault01">Destino da Carga</label>
+        <select id="opcao" class="form-control">
+            <option>    -- Selecione --     </option>
+            <option value="1">  Reciclagem  </option>
+            <option value="2"> Descarte  </option>
+        </select>
+    </div>
+
+    <div id="descarte" class="hidden">
+
+        <h4>Informações do Descarte<i class="glyphicon glyphicon-trash"></i></h4>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Quantidade *</label>
+            <input type="text" class="form-control" id="" placeholder="Ex: 380" required>
+        </div>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Data </label>
+            <input type="date" class="form-control" id="" placeholder="">
+        </div>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Horário </label>
+            <input type="time" class="form-control" id="" placeholder="">
+        </div>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Coletado Por:</label>
+            <input type="text" class="form-control" id="" placeholder="">
+        </div>
+
+        <div class="col-xs-12 col-md-4 col-sm-3">
+            <label for="validationDefault01">Tipo de Coleta</label>
+            <select class="form-control">
+                <option>    -- Selecione --     </option>
+                <option value="1">  Pagável  </option>
+                <option value="2"> Sem Custo  </option>
+            </select>
+        </div>
+
+    </div>
+
+    <div id="reciclagem" class="hidden">
+
+        <h4>Reciclagem<i class="glyphicon glyphicon-grain"></i></h4>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Quantidade *</label>
+            <input type="text" class="form-control" id="" placeholder="Ex: 380" required>
+        </div>
+
+        <div class="col-xs-12 col-md-4 col-sm-3">
+            <label for="validationDefault01"> Beneficiário</label>
+            <select class="form-control">
+                <option>    -- Selecione --     </option>
+                <option value="1">  Empresa  </option>
+                <option value="2"> Empresa Terceiras  </option>
+                <option value="3"> Instituições    </option>
+                <option value="4"> Nenhum</option>
+            </select>
+        </div>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Fretado Por:</label>
+            <select class="form-control">
+                <option>    -- Selecione --     </option>
+                <option value="1">  Empresa  </option>
+                <option value="2"> Empresa Terceiras  </option>
+                <option value="3"> Instituições    </option>
+                <option value="4"> Nenhum</option>
+            </select>
+        </div>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Data </label>
+            <input type="date" class="form-control" id="" placeholder="">
+        </div>
+
+        <div class="col-xs-4 col-md-4 col-sm-3">
+            <label for="validationDefaultUsername">Horário </label>
+            <input type="time" class="form-control" id="" placeholder="">
+        </div>
+
+        <br />
+    <div class="col-xs-12 col-md-6 col-sm-6">
+        <label for="validationDefault01">Obervações</label>
+        <textarea class="form-control">
+               
+            </textarea>
+    </div>
+
+        
+
+    </div>
+
+</div>
+
+<br />
+
+<div id="btnSalvar" class="hidden form-row">
+    <button class="btn btn-success" type="submit"><i class="material-icons">check</i>&nbsp;  Salvar </button>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.css.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+
+<script>
+    $("#opcao").change(function () {
+        var opc = $("#opcao").val();
+
+        if (opc == 2) {
+            $("#descarte").removeClass('hidden');
+            $("#reciclagem").addClass('hidden');
+            $("#btnSalvar").removeClass('hidden');
+
+        }
+        if (opc == 1) {
+            $("#descarte").addClass('hidden');
+            $("#reciclagem").removeClass('hidden');
+            $("#btnSalvar").removeClass('hidden');
+        }
+        if (opc != 1 && opc != 2 ) {
+            $("#descarte").addClass('hidden');
+            $("#reciclagem").addClass('hidden');
+            $("#btnSalvar").addClass('hidden');
+        }
+
+    });
+
+
+
+</script>

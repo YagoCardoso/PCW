@@ -16,9 +16,7 @@ namespace PCW.Models
         public string CPF { get; set; }
         [Required]
         public string DTNASCIMENTO { get; set; }
-        [Required]
         public string USUARIO { get; set; }
-        [Required]
         public string SENHA { get; set; }
         public string TIPO { get; set; }
         public string TELEFONE { get; set; }
@@ -26,5 +24,6 @@ namespace PCW.Models
         public string NUMERO { get; set; }
         public string ESTADO { get; set; }
         public string CEP { get; set; }
+        public string CNH { get; set; }
     }
 }
