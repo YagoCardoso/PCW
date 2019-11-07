@@ -127,8 +127,9 @@ namespace PCW.Models
             Pessoas pessoas = new Pessoas();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha;
                 //string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha + " AND USUARIO = " + usuario;
+                string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha;
+               
                 SqlCommand cmd = new SqlCommand(sqlQuery, con);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
