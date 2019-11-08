@@ -47,7 +47,7 @@
             </div>
             <div class="loginusu hidden  col-md-5 col-sm-5">
                 <label asp-for="SENHA" class="control-label">Senha</label>
-                <input asp-for="SENHA" class="form-control" /><a class="btn btn-sm btn-info" onclick="sortear()"><span style="color:white">Gerar senha</span></a>
+                <input asp-for="SENHA" maxlength="6" type="text" class="form-control" /><a class="btn btn-sm btn-info" onclick="sortear()"><span style="color:white">Gerar senha</span></a>
             </div>
             <div class="col-xs-5 col-md-5 col-sm-5">
                 <label asp-for="TIPO" class="control-label">Tipo de Usuário</label>
@@ -105,27 +105,27 @@
     function sortear() {
         var cidades = [
             {
-                nome: 'Wc1v2',
+                nome: '150897',
                 populacao: 1000
             },
 
             {
-                nome: 'Ab1n2',
+                nome: '006977',
                 populacao: 3000
             },
 
             {
-                nome: 'Cw1w2',
+                nome: '222638',
                 populacao: 6000
             },
 
             {
-                nome: 'Io2p3',
+                nome: '575783',
                 populacao: 6000
             },
 
             {
-                nome: 'Fq1w2',
+                nome: '529687',
                 populacao: 6000
             }
         ];
@@ -267,4 +267,6 @@
 <script>
     $('#CPF').mask('000.000.000-00', { reverse: true });
     $("#CEP").mask("99999-999");
+    $("#SENHA").mask("000000");
+
 </script>
