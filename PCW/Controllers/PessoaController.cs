@@ -47,8 +47,12 @@ namespace PCW.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind] Pessoas pessoas)
         {
+            if(pessoas.CNH == null)
+            {
+                pessoas.CNH = "NT";
+            }
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid )
             {
                 pes.AddPessoas(pessoas);
                 return RedirectToAction("Index");
