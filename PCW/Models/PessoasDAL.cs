@@ -135,21 +135,8 @@ namespace PCW.Models
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    pessoas.SEQPESSOA = Convert.ToInt32(rdr["SEQPESSOA"]);
-                    pessoas.NOME = rdr["NOME"].ToString();
-                    pessoas.CIDADE = rdr["CIDADE"].ToString();
-                    pessoas.CPF = rdr["CPF"].ToString();
-                    pessoas.DTNASCIMENTO = rdr["DTNASCIMENTO"].ToString();
-                    pessoas.USUARIO = rdr["USUARIO"].ToString();
                     pessoas.SENHA = rdr["SENHA"].ToString();
-                    pessoas.TIPO = rdr["TIPO"].ToString();
-                    pessoas.TELEFONE = rdr["TELEFONE"].ToString();
-                    pessoas.ENDERECO = rdr["ENDERECO"].ToString();
-                    pessoas.NUMERO = rdr["NUMERO"].ToString();
-                    pessoas.ESTADO = rdr["ESTADO"].ToString();
-                    pessoas.CEP = rdr["CEP"].ToString();
-                    pessoas.CIDADE = rdr["CIDADE"].ToString();
-
+                  
                 }
             }
             return pessoas;

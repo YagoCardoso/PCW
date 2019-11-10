@@ -53,9 +53,9 @@
                 <label asp-for="TIPO" class="control-label">Tipo de Usuário</label>
                 <select asp-for="TIPO" class="form-control" id="tipousu">
                     <option>            -- Selecione --</option>
-                    <option value="1">Cliente</option>
-                    <option value="2">Usuário</option>
-                    <option value="3">Motorista</option>
+                    <option value="Cliente">Cliente</option>
+                    <option value="Usuário">Usuário</option>
+                    <option value="Motorista">Motorista</option>
                 </select>
             </div>
             <div class="col-xs-5 col-md-5 col-sm-5">
@@ -79,7 +79,7 @@
                 <input asp-for="CEP" class="form-control" />
             </div>
 
-            <div class="col-xs-12">
+            <div id="agoY" class="col-xs-12">
                 <button onclick="validaTermo()" class="btn btn-success" value="Create" type="submit"><i class="material-icons">check</i>&nbsp;  Salvar </button>
             </div>
         </form>
@@ -156,19 +156,19 @@
 <script>
     //Mostra campos para Tipo usuario
     $("#tipousu").change(function () {
-        var usu = $("#tipousu :selected").val();
-        if (usu == 2) {
+        var usu = $("#tipousu :selected").text();
+        if (usu == "Usuário") {
 
             $(".loginusu").removeClass('hidden');
         }
-        if (usu != 2) {
+        if (usu != "Usuário") {
 
             $(".loginusu").addClass('hidden');
         }
-        if (usu == 3) {
+        if (usu == "Motorista") {
             $("#CNH").removeClass('hidden')
         }
-        if (usu != 3) {
+        if (usu != "Motorista") {
             $("#CNH").addClass('hidden')
         }
     });
@@ -182,12 +182,21 @@
 
         if (nome == "" || nome == null) {
             $("#spanNome").removeClass('hidden');
+            $("#agoY").addClass('hidden')
+        } else {
+            $("#agoY").removeClass('hidden')
         }
         if (cpf == "" || cpf == null) {
             $("#spanCPF").removeClass('hidden');
+            $("#agoY").addClass('hidden')
+        } else {
+            $("#agoY").removeClass('hidden')
         }
         if (niver == "" || niver == null) {
             $("#spanDTNASCIMENTO").removeClass('hidden');
+            $("#agoY").addClass('hidden')
+        } else {
+            $("#agoY").removeClass('hidden')
         }
 
     }
