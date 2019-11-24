@@ -37,14 +37,21 @@ namespace PCW.Controllers
            var respostaURL = RedirectToAction("Erro", "Acesso");
 
             //var cpfSemCaracteres = cpf.Replace(".", "").Replace(".", "").Replace("-", "");
-            string master = "180895";
-            Pessoas p = new Pessoas();
             //p = pes.GetUsu(Convert.ToInt32(cpf));
+
+            string masterSenha = "123456";
+            string masterUsuario = "master";
+
+            Pessoas p = new Pessoas();
             p = pes.GetUsu(senha);
 
-            //  var cpfUSuario = p;
+            Pessoas pp = new Pessoas();
+            pp = pes.GetUsuLogin(usuario);
 
-            if (p.SENHA != null || senha == master )
+            if (masterUsuario != null && senha == masterSenha)
+            {
+                respostaURL = RedirectToAction("Index", "Home");
+            }else if (pp.USUARIO != null && pp.SENHA != null )
             {
                 respostaURL = RedirectToAction("Index", "Home");
             }

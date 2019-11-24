@@ -11,5 +11,6 @@ namespace PCW.Models
         void DeletePessoas(int? id);
 
         Pessoas GetUsu(string senha);
+        Pessoas GetUsuLogin(string usuario);
     }
 }

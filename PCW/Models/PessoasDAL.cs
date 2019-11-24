@@ -128,15 +128,37 @@ namespace PCW.Models
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 //string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha + " AND USUARIO = " + usuario;
-                string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha;
-               
+                string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= @SENHA";
                 SqlCommand cmd = new SqlCommand(sqlQuery, con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@SENHA", senha);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
                     pessoas.SENHA = rdr["SENHA"].ToString();
                   
+                }
+            }
+            return pessoas;
+        }
+
+        public Pessoas GetUsuLogin(string usuario)
+        {
+            Pessoas pessoas = new Pessoas();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                //string sqlQuery = "SELECT * FROM PESSOAS WHERE SENHA= " + senha + " AND USUARIO = " + usuario;
+                string sqlQuery = "SELECT * FROM PESSOAS WHERE USUARIO = @USUARIO ";
+                SqlCommand cmd = new SqlCommand(sqlQuery, con);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@USUARIO", usuario);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    pessoas.SENHA = rdr["SENHA"].ToString();
+
                 }
             }
             return pessoas;
